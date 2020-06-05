@@ -1,5 +1,13 @@
 package sample;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import sample.ocpp.Message;
+import sample.ocpp.Request;
+import sample.ocpp.RequestHandler;
+import sample.ocpp.RequestParser;
+
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -23,9 +31,18 @@ public class SocketServer {
 
     @OnMessage
     public String handleTextMessage(String message) {
-        System.out.println("New Text Message Received");
+        System.out.println("--------------------------------------------------------------");
+        System.out.println("Request");
         System.out.println(message);
-        return message;
+        JsonArray jsonArray = (JsonArray) new JsonParser().parse(message);
+
+        Message msg = RequestParser.parse(jsonArray);
+        String responseMessage = RequestHandler.handle((Request) msg);
+
+        System.out.println("Response");
+        System.out.println(responseMessage);
+
+        return responseMessage;
     }
 
     @OnMessage(maxMessageSize = 1024000)
