@@ -10,12 +10,13 @@ public class Mock {
     private static int transactionId = 0;
 
     private static int getNextTransactionId() {
-        return ++ Mock.transactionId;
+        Mock.transactionId = Mock.transactionId + 1;
+        return Mock.transactionId;
     }
 
     public static BootNotification bootNotificationMock = new BootNotification(
             DateTimeFormater.get(new Date()),
-            300,
+            30,
             Status.BootNotificationAccepted
     );
 
@@ -34,7 +35,7 @@ public class Mock {
                     "",
                     Status.AuthorizeAccepted
             ),
-            getNextTransactionId()
+            (int) Math.round(Math.random() * 1000)
     );
 
     public static StopTransaction stopTransactionMock = new StopTransaction(

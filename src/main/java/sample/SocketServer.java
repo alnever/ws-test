@@ -16,7 +16,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.util.Arrays;
 
 @ServerEndpoint(
-        value = "/ocpp/ws/ocpp16/PSS_OCPP16J_TEST",
+        value = "/ocpp/ws/ocpp16/78125E20",
         subprotocols = {"ocpp1.6"}
         )
 public class SocketServer {

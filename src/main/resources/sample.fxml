@@ -11,8 +11,6 @@
 <VBox fx:controller="sample.Controller"
       xmlns:fx="http://javafx.com/fxml" >
     <HBox>
-        <Label>Port: </Label>
-        <TextField fx:id="txtPort"></TextField>
         <Button onMouseClicked="#onStart">Start</Button>
     </HBox>
     <VBox>
