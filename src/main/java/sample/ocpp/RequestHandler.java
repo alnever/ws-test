@@ -3,8 +3,13 @@ package sample.ocpp;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import sample.ocpp.mock.Mock;
+import sample.ocpp.types.IdTagInfo;
+import sample.ocpp.types.StartTransaction;
+import sample.ocpp.utils.DateTimeFormater;
+import sample.ocpp.utils.Status;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RequestHandler {
 
@@ -21,7 +26,14 @@ public class RequestHandler {
         }
 
         if ("StartTransaction".equals(request.getAction())) {
-            response.add(Mock.startTransactionMock);
+            response.add(new StartTransaction(
+                    new IdTagInfo(
+                            DateTimeFormater.get(new Date()),
+                            "",
+                            Status.AuthorizeAccepted
+                    ),
+                    (int) Math.round(Math.random() * 1000)
+            ));
         }
 
         if ("StopTransaction".equals(request.getAction())) {

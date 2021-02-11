@@ -1,5 +1,7 @@
 package sample.ocpp.types;
 
+import sample.ocpp.mock.Mock;
+
 public class StartTransaction {
     private IdTagInfo idTagInfo;
     private int transactionId;
@@ -7,7 +9,7 @@ public class StartTransaction {
 
     public StartTransaction(IdTagInfo idTagInfo, int transactionId) {
         this.idTagInfo = idTagInfo;
-        this.transactionId = transactionId;
+        this.transactionId = Mock.getNextTransactionId();
     }
 
     public IdTagInfo getIdTagInfo() {

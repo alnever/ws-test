@@ -9,7 +9,7 @@ import java.util.Date;
 public class Mock {
     private static int transactionId = 0;
 
-    private static int getNextTransactionId() {
+    public static int getNextTransactionId() {
         Mock.transactionId = Mock.transactionId + 1;
         return Mock.transactionId;
     }
