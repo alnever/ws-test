@@ -5,4 +5,6 @@ public class Status {
     public static final String BootNotificationRejected = "Rejected";
 
     public static final String AuthorizeAccepted = "Accepted";
+
+    public static final String ConcurrentTx = "ConcurrentTx";
 }

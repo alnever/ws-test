@@ -28,7 +28,7 @@ public class RequestHandler {
         if ("StartTransaction".equals(request.getAction())) {
             response.add(new StartTransaction(
                     new IdTagInfo(
-                            DateTimeFormater.get(new Date()),
+                            "2021-03-19T08:44:00.131Z",
                             "",
                             Status.AuthorizeAccepted
                     ),

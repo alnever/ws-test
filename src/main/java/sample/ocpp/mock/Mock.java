@@ -22,7 +22,7 @@ public class Mock {
 
     public static Authorize authorizeMock = new Authorize(
             new IdTagInfo(
-                    DateTimeFormater.get(new Date()),
+                    "2021-03-19T08:44:00.131Z",
                     "",
                     Status.AuthorizeAccepted
 
@@ -33,7 +33,7 @@ public class Mock {
             new IdTagInfo(
                     DateTimeFormater.get(new Date()),
                     "",
-                    Status.AuthorizeAccepted
+                    Status.ConcurrentTx
             ),
             (int) Math.round(Math.random() * 1000)
     );
